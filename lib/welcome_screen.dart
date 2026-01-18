@@ -68,8 +68,31 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                           ? Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              TypeButton(text: 'Search by Image'),
-                              TypeButton(text: 'Search by Text'),
+                              TypeButton(
+                                text: 'Search by Image',
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder:
+                                          (_) => SearchPage(
+                                            searchType:
+                                               'image',
+                                          ),
+                                    ),
+                                  );
+                                },
+                              ),
+                              TypeButton(text: 'Search by Text', onTap: () {
+                                 Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder:
+                                          (_) => SearchPage(
+                                            searchType:
+                                               'text',
+                                          ),
+                                    ),
+                                  );
+                              }),
                             ],
                           )
                           : const SizedBox(),

@@ -63,7 +63,14 @@ class HelperMethods {
         'X-API-KEY': myApiKey,
         'Content-Type': 'application/json',
       };
-      final data = json.encode({"q": query, "gl": "eg", "hl": "ar", "type": "search"});
+      final data = json.encode({
+        "q": query,
+        "location": "Egypt",
+
+        "gl": "eg",
+        "hl": "ar",
+        "type": "search",
+      });
 
       final response = await dio.post(
         'https://google.serper.dev/search',
@@ -97,7 +104,7 @@ class HelperMethods {
       };
       final data = json.encode({
         "url": uploadedUrl,
-            "location": "Egypt",
+        "location": "Egypt",
         "gl": "eg",
         "hl": "ar",
         "type": "lens",

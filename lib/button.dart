@@ -3,21 +3,13 @@ import 'package:flutter/material.dart';
 import 'search_page.dart';
 
 class TypeButton extends StatelessWidget {
-  const TypeButton({super.key, required this.text});
-final String text;
+  const TypeButton({super.key, required this.text, required this.onTap});
+  final String text;
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder:
-                (_) => SearchPage(
-                  searchType: text == 'Search by Image' ? 'image' : 'text',
-                ),
-          ),
-        );
-      },
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         decoration: BoxDecoration(

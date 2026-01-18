@@ -97,10 +97,20 @@ class _ImageSearchState extends State<ImageSearch> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                TypeButton(text: 'كاميرا'),
+                TypeButton(
+                  text: 'كاميرا',
+                  onTap: () async {
+                    _pickAndSearch('camera');
+                  },
+                ),
 
                 const SizedBox(width: 10),
-                TypeButton(text: 'معرض'),
+                TypeButton(
+                  text: 'معرض',
+                  onTap: () async {
+                    _pickAndSearch('gallery');
+                  },
+                ),
               ],
             ),
 
